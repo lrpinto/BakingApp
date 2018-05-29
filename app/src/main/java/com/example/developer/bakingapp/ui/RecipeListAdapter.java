@@ -6,22 +6,25 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.developer.bakingapp.data.Recipe;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 // Custom adapter class that displays a list of recipes in a GridView
-public class MasterListAdapter extends BaseAdapter {
+public class RecipeListAdapter extends BaseAdapter {
 
     // Keeps track of the context and list of recipes to display
     private Context mContext;
-    private List<String> mRecipes;
+    private ArrayList<Recipe> mRecipes;
 
     /**
      * Constructor method
      *
      * @param recipes The list of recipes to display
      */
-    public MasterListAdapter(Context context, List<String> recipes) {
+    public RecipeListAdapter(Context context, ArrayList<Recipe> recipes) {
         mContext = context;
         mRecipes = recipes;
     }
@@ -59,7 +62,7 @@ public class MasterListAdapter extends BaseAdapter {
         }
 
         // Set the text resource and return the newly created TextView
-        textView.setText(mRecipes.get(position));
+        textView.setText(mRecipes.get(position).getName());
         return textView;
     }
 

@@ -1,15 +1,14 @@
 package com.example.developer.bakingapp.ui;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.developer.bakingapp.R;
-import com.example.developer.bakingapp.ui.RecipeDetailActivity;
-import com.example.developer.bakingapp.ui.MasterListFragment;
+import com.example.developer.bakingapp.data.Recipe;
 
-public class MainActivity extends AppCompatActivity implements MasterListFragment.OnRecipeClickListener {
+public class MainActivity extends AppCompatActivity implements RecipeListFragment.OnRecipeClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,22 +17,22 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
     }
 
     @Override
-    public void onRecipeSelected(int position) {
+    public void onRecipeSelected(Recipe recipe) {
         // Create a Toast that displays the position that was clicked
-        Toast.makeText(this, "Position clicked = " + position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Recipe clicked = " + recipe.getName(), Toast.LENGTH_SHORT).show();
 
-        /*
+        // Log the clicked recipe
+        Log.i("Info", recipe.toString());
+
         // Handle the single-pane phone case by passing information in a Bundle attached to an Intent
 
-        // Put the recipe index information in a Bundle and attach it to an Intent that will launch an RecipeDetailActivity
-        Bundle b = new Bundle();
-        b.putInt("recipeIndex", position);
-
-        // Attach the Bundle to an intent
+        /*
+        // Attach the Recipe to an intent
         final Intent intent = new Intent(this, RecipeDetailActivity.class);
-        intent.putExtras(b);
+        intent.putExtra("RECIPE", recipe);
         startActivity(intent);
         */
 
     }
+
 }

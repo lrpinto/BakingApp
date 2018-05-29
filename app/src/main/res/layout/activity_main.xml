@@ -1,6 +1,6 @@
 <!-- Display the static master list fragment -->
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/master_list_fragment"
-    android:name="com.example.developer.bakingapp.ui.MasterListFragment"
+    android:name="com.example.developer.bakingapp.ui.RecipeListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
